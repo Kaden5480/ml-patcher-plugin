@@ -6,7 +6,6 @@
 A plugin for MelonLoader which supports BepInEx style patchers.
 
 # Overview
-- [Features](#features)
 - [Installing](#installing)
     - [Windows](#windows)
     - [Linux](#linux)
