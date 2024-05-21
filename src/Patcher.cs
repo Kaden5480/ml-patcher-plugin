@@ -137,6 +137,7 @@ namespace MLPatcherPlugin {
             AssemblyDefinition dllAssembly = AssemblyDefinition.ReadAssembly(dll.FullName);
 
             foreach (MelonAssembly assembly in MelonAssembly.LoadedAssemblies) {
+                AssemblyName assemblyName = assembly.Assembly.GetName();
                 Type patcher = GetPatcherClass(assembly.Assembly);
 
                 if (patcher == null) {
@@ -153,6 +154,7 @@ namespace MLPatcherPlugin {
                     continue;
                 }
 
+                MelonLogger.Msg($"{assemblyName.Name} ({assemblyName.Version}) patching {dll.Name}");
                 patch.Invoke(null, new object[] { dllAssembly });
                 wasPatched = true;
             }
@@ -166,7 +168,7 @@ namespace MLPatcherPlugin {
             dllAssembly.Write(patchedPath);
             dllAssembly.Dispose();
 
-            Console.WriteLine($"Loading patched DLL: {dll.Name}");
+            MelonLogger.Msg($"Loading patched DLL: {dll.Name}");
             Assembly.LoadFile(patchedPath);
         }
 
