@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>MLPatcherPlugin</AssemblyName>
+    <Version>0.1.0</Version>
+    <Description>A plugin for MelonLoader which supports BepInEx style patchers</Description>
+    <Platform>Any CPU</Platform>
+    <RootNamespace>MLPatcherPlugin</RootNamespace>
+    <Configurations>Debug;Release</Configurations>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <IntermediateOutputPath>obj/$(Configuration)</IntermediateOutputPath>
+    <OutputPath>bin/$(Configuration.ToLower())/</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LavaGang.MelonLoader" Version="0.6.1"/>
+    <PackageReference Include="MonoMod.Utils" Version="22.5.1.1"/>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(OS)' == 'Unix'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all"/>
+  </ItemGroup>
+
+  <Target Name="CopyPackageAssembliesToSubFolder" AfterTargets="ResolveReferences">
+    <ItemGroup>
+      <ReferenceCopyLocalPaths
+        Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)' != ''"
+        Update="$(ReferenceCopyLocalPaths)"
+        DestinationSubDirectory="libs/"/>
+    </ItemGroup>
+  </Target>
+</Project>
+<!-- vim: set et sw=2 ts=2 ft=xml: -->
