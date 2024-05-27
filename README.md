@@ -8,10 +8,9 @@ A plugin for MelonLoader which supports BepInEx style patchers.
 # Overview
 - [Installing](#installing)
 - [Developing patchers](#developing-patchers)
-- [Building from source](#building)
+- [Building from source](#building-from-source)
     - [Dotnet](#dotnet-build)
     - [Visual Studio](#visual-studio-build)
-    - [Custom game locations](#custom-game-locations)
 
 # Installing
 ## MelonLoader
