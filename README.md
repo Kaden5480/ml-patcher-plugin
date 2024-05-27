@@ -22,7 +22,7 @@ If you haven't installed MelonLoader, follow the install instructions here:
 ## MLPatcherPlugin
 - Download the latest release
 [here](https://github.com/Kaden5480/ml-patcher-plugin/releases).
-- The compressed zip file will contain a `Plugins`, and `UserLibs` directory.
+- The compressed zip file will contain a `Plugins` and `UserLibs` directory.
 - Copy the files from `Plugins` to `Plugins` in your game directory.
 - Copy the files from `UserLibs` to `UserLibs` in your game directory.
 
