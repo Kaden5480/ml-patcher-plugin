@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <AssemblyName>MLPatcherPlugin</AssemblyName>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Description>A plugin for MelonLoader which supports BepInEx style patchers</Description>
     <Platform>Any CPU</Platform>
     <RootNamespace>MLPatcherPlugin</RootNamespace>
